@@ -1,2 +1,11 @@
-test:
-    script: echo "hello world"
+name: test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: phase-1
+        run: echo "Hello World!"
