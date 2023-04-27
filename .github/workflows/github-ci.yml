@@ -1,2 +1,30 @@
-test:
-    script: echo "hello world"
+name: test
+
+on:
+
+  push:
+    branches:
+      - '*'
+
+  pull_request:
+    branches:
+      - 'master'
+
+jobs:
+
+  Phase-1:
+
+    runs-on: ${{matrix.os}}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: echo
+        run: echo "Hello World!"
+
+      - name: ls
+        run: ls -al
